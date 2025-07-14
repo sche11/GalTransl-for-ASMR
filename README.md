@@ -19,6 +19,11 @@ VoiceTransl是一站式离线AI视频字幕生成和翻译软件，从视频下�
 * 支持音频切分，字幕合并和视频合成。
 * 支持字幕总结，可以自定义Prompt。
 
+## 在线镜像
+
+打开即用的AI翻译，与配置环境说拜拜，推荐大家使用优云智算算力租赁平台。万卡4090 超多好玩免费的镜像给大家免费体验,高性价比算力租赁平台,上市公司ucloud旗下，专业有保障。点击链接直达[镜像地址](https://www.compshare.cn/images/compshareImage-16qc028dgfoh?referral_code=1RFfR2FQ2FyEVRJMyrOn5d&ytag=GPU_YY-GH_simple)，使用说明请看
+[视频教程](https://b23.tv/qN9bDHi)。使用昕蒲邀请链接注册可得实名20增金+链接注册20+高校企业认证再得10，还可享95折，4090一小时只要1.98 ：[邀请链接](https://passport.compshare.cn/register?referral_code=1RFfR2FQ2FyEVRJMyrOn5d&ytag=simple_bilibili)
+
 ## 下载
 
 下载最新版本的[VoiceTransl](https://github.com/shinnpuru/VoiceTransl/releases/)，解压后运行`VoiceTransl.exe`。
@@ -90,6 +95,14 @@ llama-bxxxx-bin-win-cuda-cu12.4-x64.zip
 | [Gemma3-12B-Q4](https://ai.google.dev/gemma/docs/core) | 多语种 | llamacpp |  ~7 GiB | ~14 GB | [下载](https://huggingface.co/ggml-org/gemma-3-12b-it-GGUF) |
 
 
+## 人声分离
+
+人声分离基于[MDX-Net](https://github.com/kuielab/mdx-net)模型，模型请在[链接](https://github.com/TRvlvr/model_repo/releases/tag/all_public_uvr_models)处下载，并放到`uvr`文件夹下。推荐使用以下模型：
+
+- `UVR-MDX-NET-Inst_Main.onnx`
+- `UVR-MDX-NET-Inst_HQ_3.onnx`
+- `UVR_MDXNET_KARA_2.onnx`
+
 ## 模式
 
 本软件支持四种模式，分别是下载模式，翻译模式，听写模式和完整模式。
@@ -118,10 +131,6 @@ llama-bxxxx-bin-win-cuda-cu12.4-x64.zip
 
 Linux可以使用服务器部署进行运行，详细请参考[server分支](https://github.com/shinnpuru/GalTransl-for-ASMR/tree/server)。MacOS暂时不支持。
 
-## 在线镜像
-
-打开即用的AI翻译，与配置环境说拜拜，推荐大家使用优云智算算力租赁平台。万卡4090 超多好玩免费的镜像给大家免费体验,高性价比算力租赁平台,上市公司ucloud旗下，专业有保障。点击链接直达[镜像地址](https://www.compshare.cn/images/compshareImage-16qc028dgfoh?referral_code=1RFfR2FQ2FyEVRJMyrOn5d&ytag=GPU_YY-GH_simple)，使用说明请看
-[视频教程](https://b23.tv/qN9bDHi)。使用昕蒲邀请链接注册可得实名20增金+链接注册20+高校企业认证再得10，还可享95折，4090一小时只要1.98 ：[邀请链接](https://passport.compshare.cn/register?referral_code=1RFfR2FQ2FyEVRJMyrOn5d&ytag=simple_bilibili)
 
 ## 开发
 
@@ -132,6 +141,7 @@ pip install -r requirements.txt
 
 2. 构建程序
 ```
+pyinstaller separate.py --onefile --distpath uvr
 pyinstaller app.spec
 ```
 
